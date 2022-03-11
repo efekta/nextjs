@@ -1,0 +1,101 @@
+//Главная
+.about {
+  padding: 73px 0;
+}
+
+//Обертка для картинки
+.wrapperPicture {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  min-height: 177px;
+  background: #EFF0F7;
+  border-radius: var(--radius-m);
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+
+  @include sm-block {
+    min-height: 304px;
+  }
+
+  @include md-block {
+    min-height: 378px;
+  }
+}
+
+.image {
+  object-fit: contain;
+}
+
+//Заголовки
+.titleH1, .titleH2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.titleH1 {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+
+  @include lg-block {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  @include xxl-block {
+    font-size: 36px;
+    line-height: 40px;
+  }
+}
+
+.titleH2 {
+  margin-bottom: 12px;
+
+  @include xxl-block {
+    font-size: 28px;
+    line-height: 32px;
+  }
+}
+
+.aboutRow {
+  @include lg-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-l);
+  }
+}
+
+.aboutCol {
+  margin-bottom: 60px;
+}
+
+.aboutDesc {
+    font-size: 16px;
+    line-height: 24px;
+    font-feature-settings: 'tnum' on, 'lnum' on;
+    opacity: 0.8;
+    margin-bottom: 24px;
+
+  @include lg-block {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  @include xxl-block {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.aboutBtn {
+  width: 100%;
+
+  @include sm-block {
+    width: auto;
+  }
+}

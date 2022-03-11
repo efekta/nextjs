@@ -1,0 +1,162 @@
+html {
+  // colors
+  --color-white: #fff;
+  --color-black: #000;
+  --color-background: #e5e5e5;
+  //--color-background: #eff0f7;
+
+  // accent colors
+  --color-primary: #b9f348;
+  --color-primary-hover: #03efe3;
+  //--color-secondary: #b9f348;
+  //--color-secondary-hover: #b9f348;
+  --color-disabled: #b1b3c0;
+  --color-grey-0: #262f37;
+  --color-grey-1: #292e32;
+  --color-ash: #262626;
+  --color-input: #eff0f7;
+  --color-label: #808192;
+  --color-error-50: #fff2f2;
+  --color-error-400: #980101;
+
+  // fonts
+  --root-font-size: 16px;
+  --font-family: "Roboto", "Arial", sans-serif;
+  --font-default: 400 16px / 24px var(--font-family);
+
+  // radius
+  --radius-xs: 10px;
+  --radius-s: 12px;
+  --radius-m: 16px;
+  --radius-l: 20px;
+  --radius-xl: 24px;
+
+  // spaces
+  --space-xs: 8px;
+  --space-s: 12px;
+  --space-m: 16px;
+  --space-l: 20px;
+  --space-xl: 24px;
+  --space-xxl: 32px;
+  --space-large: 36px;
+  --space-huge: 40px;
+  --space-extra: 60px;
+
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+body,
+html {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.1;
+  color: var(--color-black);
+  background-color: var(--color-background);
+}
+
+a {
+  text-decoration: inherit;
+  color: var(--color-ash);
+  cursor: pointer;
+}
+
+input {
+  border: none;
+}
+
+label {
+  cursor: pointer;
+}
+
+picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+button {
+  @include btn-reset;
+}
+
+ul {
+  @include list-reset;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.modal--open {
+  overflow: hidden;
+  touch-action: none;
+  -ms-touch-action: none;
+  -webkit-overflow-scrolling: touch;
+
+  #__next {
+    overflow: hidden;
+  }
+}
+
+.modal-root {
+  [class*="Layout_header"] {
+    right: 8.4px;
+    transition: none;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  box-shadow: inset 0 0 0 50px var(--color-input);
+  -webkit-text-fill-color: inherit;
+  background-color: transparent;
+}
+

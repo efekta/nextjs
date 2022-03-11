@@ -2,14 +2,12 @@ import { useIsMedium } from '@client/hooks/useMediaQuery';
 import { useTypedDispatch } from '@client/hooks/useTypedDispatch';
 import Image from "next/image";
 import { Button, Container } from '@/ui';
-import cn from 'classnames';
+
 import s from './About.module.scss';
 
 export const About = (): JSX.Element => {
     const isLarge = useIsMedium();
-    // const {
-    //     modals: { showPublicModal },
-    // } = useTypedDispatch();
+    const { modals: { showPublicModal } } = useTypedDispatch();
 
     return (
         <section className={s.about}>
@@ -28,7 +26,7 @@ export const About = (): JSX.Element => {
                             ли Ваше устройство технологию виртуальной eSIM.
                         </p>
 
-                        <Button variant='secondary' className={cn(s.button, s.aboutBtn)}>Моё устройство подойдёт?</Button>
+                        <Button variant='secondary' className={s.btn}>Моё устройство подойдёт?</Button>
                     </div>
                     <div className={s.aboutCol}>
                         <div className={s.wrapperPicture}>
@@ -43,7 +41,7 @@ export const About = (): JSX.Element => {
                         </p>
 
                         {/*<Button variant='primary' onClick={() => showPublicModal('auth')} className={cn(s.btn, s.button, { [s.active]: isActive })}>Подключить</Button>*/}
-                        <Button variant='primary' className={cn(s.btn, s.button, s.aboutBtn)}>Подключить</Button>
+                        <Button variant='primary' className={s.btn} onClick={() => showPublicModal('feedback')}>Подключить</Button>
                     </div>
                 </div>
             </Container>

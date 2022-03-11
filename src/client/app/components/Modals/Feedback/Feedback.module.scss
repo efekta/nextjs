@@ -1,0 +1,45 @@
+.feedback {
+  @include xl-block {
+    width: clamp(458px, 522px, 80vw);
+    max-width: calc(522px - 64px);
+  }
+}
+
+.title {
+  position: relative;
+  display: none;
+  margin: 0 0 36px;
+  padding-bottom: 16px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: -32px;
+    bottom: 0;
+    width: calc(100% + 64px);
+    height: 1px;
+    background-color: var(--color-grey-1);
+    opacity: 0.1;
+  }
+
+  @include xl-block {
+    display: block;
+  }
+}
+
+.agreement {
+  margin: 0 auto;
+  max-width: 406px;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #b9b9b9;
+
+  a {
+    color: var(--color-primary);
+  }
+}

@@ -1,0 +1,13 @@
+.subtitle {
+  margin: 0 0 var(--space-large);
+  font-size: 16px;
+  line-height: clamp(1.5rem, 2vw + 1rem, 1.75rem);
+  color: var(--color-white);
+  opacity: 0.8;
+
+  @include xl-block {
+    margin-bottom: var(--space-xxl);
+    font-size: 20px;
+    line-height: 28px;
+  }
+}

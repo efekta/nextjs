@@ -1,0 +1,14 @@
+.controls {
+  display: grid;
+  grid-column: 1/-1;
+  width: 100%;
+  gap: 20px;
+
+  button {
+    width: 100%;
+
+    &:last-child {
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.text {
+  font-size: 16px;
+  line-height: 24px;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  opacity: 0.8;
+  margin-bottom: 24px;
+
+  @include lg-block {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  @include xxl-block {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

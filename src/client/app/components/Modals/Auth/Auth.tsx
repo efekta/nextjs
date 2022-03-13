@@ -1,17 +1,27 @@
+import { SetStateAction, useState } from 'react';
+
+import { Tab, Tabs } from '@/ui';
+import { ModalsTop } from '../ModalsTop/ModalsTop';
+import { AuthLogin } from './AuthForm/AuthLogin/AuthLogin';
+import { AuthRegister } from './AuthForm/AuthRegister/AuthRegister';
+
 import s from './Auth.module.scss';
-import { useTypedDispatch } from '@client/hooks/useTypedDispatch';
-import { Input, Icon } from '@/ui';
-// import { FormInput } from "@/components";
+import { tabsItems } from './Auth.data';
 
 export const Auth = (): JSX.Element => {
-    const { modals: { hideModal } } = useTypedDispatch();
+    const [mode, setMode] = useState<'login' | 'register'>('login');
+
     return (
-        <div className={s.registration}>
-            <button className={s.close} aria-label='Закрыть модальное окно' onClick={hideModal}>
-                <Icon icon='close' width={24} height={24} />
-            </button>
-            <h2 className={s.title}>Регистрация и получение виртуальной eSIM</h2>
-            <Input full title='Электронная почта' name='email' inputMode='email' />
+        <div className={s.auth}>
+            <ModalsTop title={mode === 'register' ? 'Регистрация' : 'Войти в кабинет'} />
+            <Tabs className={s.tabs}>
+                {tabsItems.map((i) => (
+                    <Tab key={i.id} isSelected={mode === i.mode} onClick={() => setMode(i.mode as SetStateAction<'login' | 'register'>)}>
+                        {i.text}
+                    </Tab>
+                ))}
+            </Tabs>
+            {mode === 'register' ? <AuthRegister /> : <AuthLogin />}
         </div>
     );
 };

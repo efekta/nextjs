@@ -1,9 +1,7 @@
-//Главная
 .about {
   padding: 73px 0;
 }
 
-//Обертка для картинки
 .wrapperPicture {
   overflow: hidden;
   position: relative;
@@ -36,6 +34,7 @@ h1.title {
 }
 
 .aboutRow {
+
   @include lg-block {
     display: grid;
     grid-template-columns: 1fr 1fr;

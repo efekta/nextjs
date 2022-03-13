@@ -40,11 +40,14 @@ h1.title {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: var(--space-l);
+    row-gap: 60px;
   }
 }
 
 .aboutCol {
-  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .btn {

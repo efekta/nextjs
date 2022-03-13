@@ -4,7 +4,7 @@ import { useTypedDispatch } from '@client/hooks/useTypedDispatch';
 import { getPublicModal } from '@store/models/modals/selectors';
 
 import { Modal } from '@/ui';
-import { Feedback } from './Feedback/Feedback';
+import { Auth } from './Auth/Auth';
 
 import { PublicModals } from './Modals.types';
 
@@ -16,7 +16,7 @@ export const Modals = (): JSX.Element => {
     } = useTypedDispatch();
 
     const contentMap: Record<PublicModals, JSX.Element> = {
-        feedback: <Feedback />,
+        auth: <Auth />,
     };
 
     return (

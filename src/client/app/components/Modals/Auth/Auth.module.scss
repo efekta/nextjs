@@ -1,4 +1,4 @@
-.feedback {
+.auth {
   @include xl-block {
     width: clamp(458px, 522px, 80vw);
     max-width: calc(522px - 64px);
@@ -7,7 +7,7 @@
 
 .title {
   position: relative;
-  display: none;
+  //display: none;
   margin: 0 0 36px;
   padding-bottom: 16px;
   font-weight: 500;

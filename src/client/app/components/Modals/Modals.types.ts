@@ -1,1 +1,1 @@
-export type PublicModals = 'feedback';
+export type PublicModals = 'auth';

@@ -1,0 +1,20 @@
+.form {
+  display: grid;
+  gap: var(--space-l);
+
+  button {
+    grid-column: 1 / -1;
+  }
+
+  p {
+    grid-column: 1 / -1;
+  }
+
+  @include lg-block {
+    grid-template-columns: 1fr 1fr;
+
+    label[class*="full"] {
+      grid-column: 1 / -1;
+    }
+  }
+}

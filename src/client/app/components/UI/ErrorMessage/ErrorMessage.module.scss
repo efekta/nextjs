@@ -1,0 +1,8 @@
+p.error {
+  grid-column: 1 / -1;
+  margin: -4px 0 0;
+  width: 100%;
+  font-size: 14px;
+  line-height: 0;
+  color: var(--color-error-400);
+}

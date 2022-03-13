@@ -1,7 +1,7 @@
 import { useIsMedium } from '@client/hooks/useMediaQuery';
 import { useTypedDispatch } from '@client/hooks/useTypedDispatch';
-import Image from "next/image";
-import { Button, Container } from '@/ui';
+// import Image from "next/image";
+import { Button, Icon, Container } from '@/ui';
 
 import s from './About.module.scss';
 
@@ -17,7 +17,8 @@ export const About = (): JSX.Element => {
                 <div className={s.aboutRow}>
                     <div className={s.aboutCol}>
                         <div className={s.wrapperPicture}>
-                            <Image src='/img/picture_1.png' alt='Инновация' layout={isLarge ? 'fill' : 'fixed'} width={183} height={177} className={s.image}/>
+                            <Icon className={s.image} icon='sim' width={183} height={177}/>
+                            {/*<Image src='/img/picture_1.png' alt='Инновация' layout='fill' width={183} height={177} className={s.image}/>*/}
                         </div>
                         <h2 className={s.titleH2}>Инновация</h2>
                         <p className={s.aboutDesc}>Виртуальная eSIM это новая технология, которая не требует отдельного SIM-слота в смартфоне,
@@ -30,7 +31,8 @@ export const About = (): JSX.Element => {
                     </div>
                     <div className={s.aboutCol}>
                         <div className={s.wrapperPicture}>
-                            <Image src='/img/picture_2.png' alt='Удобство' layout={isLarge ? 'fill' : 'fixed'} width={214} height={148} className={s.image}/>
+                            <Icon className={s.image} icon='phone' width={214} height={148}/>
+                            {/*<Image src='/img/picture_2.png' alt='Удобство' layout='fill' width={214} height={148} className={s.image}/>*/}
                         </div>
                         <h2 className={s.titleH2}>Удобство</h2>
                         <p className={s.aboutDesc}>В отличие от обычной SIM-карты, с eSIM не нужно переставлять SIM-карты или использовать
@@ -41,7 +43,7 @@ export const About = (): JSX.Element => {
                         </p>
 
                         {/*<Button variant='primary' onClick={() => showPublicModal('auth')} className={cn(s.btn, s.button, { [s.active]: isActive })}>Подключить</Button>*/}
-                        <Button variant='primary' className={s.btn} onClick={() => showPublicModal('feedback')}>Подключить</Button>
+                        <Button variant='primary' className={s.btn} onClick={() => showPublicModal('auth')}>Подключить</Button>
                     </div>
                 </div>
             </Container>

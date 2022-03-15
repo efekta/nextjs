@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ComponentPropsWithRef, ReactElement, ReactNode, useEffect } from 'react';
+import {ComponentPropsWithRef, ReactElement, ReactNode, useEffect, useState} from 'react';
 
 import useScrollbarSize from 'react-scrollbar-size';
 import { useIsLarge } from '@client/hooks/useMediaQuery';
@@ -18,8 +18,13 @@ export const Modal = ({ isOpen = false, className, children, ...props }: ModalPr
     const isLarge = useIsLarge();
     const [isLoaded, setLoaded] = useToggle(false);
 
+    const [scrollHeight, setScrollHeight] = useState<number>(0);
+    const [clientHeight, setClientHeight] = useState<number>(0);
+
     useEffect(() => {
         setLoaded();
+        setClientHeight(document.documentElement.clientHeight);
+        setScrollHeight(document.documentElement.scrollHeight);
     }, []);
 
     if (!isLoaded) {
@@ -45,12 +50,12 @@ export const Modal = ({ isOpen = false, className, children, ...props }: ModalPr
     };
 
     const afterOpenHandler = () => {
-        if (document.documentElement.scrollHeight > document.documentElement.clientHeight) document.documentElement.style.marginRight = `${width}px`;
+        if (document.documentElement.scrollHeight > document.documentElement.clientHeight) document.documentElement.style.paddingRight = `${width}px`;
         document.documentElement.classList.add('modal-root');
     };
 
     const afterCloseHandler = () => {
-        document.documentElement.style.marginRight = '0';
+        document.documentElement.style.paddingRight = '0';
         document.documentElement.classList.remove('modal-root');
     };
 

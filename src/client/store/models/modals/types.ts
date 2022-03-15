@@ -1,4 +1,4 @@
-export type ModalsPublicType = 'auth' | 'emailSent' | 'feedback' | 'integration' | '';
+export type ModalsPublicType = 'auth' | 'main' | '' | string;
 
 export type ModalsPrivateType = '';
 

@@ -5,6 +5,7 @@ import { getPublicModal } from '@store/models/modals/selectors';
 
 import { Modal } from '@/ui';
 import { Auth } from './Auth/Auth';
+import { Main } from './Main/Main';
 
 import { PublicModals } from './Modals.types';
 
@@ -17,6 +18,7 @@ export const Modals = (): JSX.Element => {
 
     const contentMap: Record<PublicModals, JSX.Element> = {
         auth: <Auth />,
+        main: <Main />
     };
 
     return (

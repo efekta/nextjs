@@ -1,1 +1,2 @@
-export type PublicModals = 'auth';
+export type PublicModals = 'auth' | 'main' | string;
+

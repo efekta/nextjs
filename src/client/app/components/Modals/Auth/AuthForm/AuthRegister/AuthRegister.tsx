@@ -29,6 +29,7 @@ export const AuthRegister = (): JSX.Element => {
                 <Button disabled={!form.formState.isValid} onClick={onSubmit}>
                     Создать аккаунт
                 </Button>
+                <Button variant={'ghost'}>Уже есть аккаунт</Button>
                 <p className={s.agreement}>
                     <span>Нажимая на кнопку «Создать аккаунт» вы принимаете условия </span>
                     <Link href='/user-agreement'>

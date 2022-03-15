@@ -19,9 +19,6 @@ export const ModalsMainTop = ({title, className}: ModalsMainTopProps): JSX.Eleme
             {
                 !isLarge && (
                     <div className={cn(s.top, className)}>
-                        <button className={s.backButton} onClick={hideModal}>
-                            <Icon icon='arrow' width={24} height={24}/>
-                        </button>
                         <Title>{'title'}</Title>
                         <button onClick={hideModal} aria-label='Закрыть модальное окно'>
                             <Icon icon='close' width={32} height={32}/>

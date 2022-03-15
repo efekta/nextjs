@@ -7,7 +7,7 @@ import s from './Main.module.scss';
 import {useTypedDispatch} from "@client/hooks/useTypedDispatch";
 import {useSelector} from "react-redux";
 import {getPublicModal} from "@store/models/modals/selectors";
-import {Button} from "@/ui";
+import {Button, Icon} from "@/ui";
 import { useForm, FormProvider } from 'react-hook-form';
 import { PublicModals } from '../../Modals/Modals.types';
 import {useIsLarge} from "@client/hooks/useMediaQuery";
@@ -23,6 +23,10 @@ export const Main = (): JSX.Element => {
     // });
     return (
         <div className={s.main}>
+            <button className={s.backButton} onClick={() => {setMode('register')}}>
+                <Icon icon='arrow' width={24} height={24}/>
+            </button>
+
             <ModalsMainTop title={mode === 'register' ? 'Регистрация' : 'Войти в кабинет'} />
 
             {mode === 'register' ? <MainRegister /> : <MainLogin />}

@@ -4,7 +4,7 @@ import { ModalsMainTop } from '../ModalsMainTop/ModalsMainTop';
 import { MainLogin } from './MainForm/MainLogin/MainLogin';
 import { MainRegister } from './MainForm/MainRegister/MainRegister';
 import {mainItems} from "./Main.data";
-import {Button, Icon, Tab, Tabs} from "@/ui";
+import {Button, Icon, Tab, Tabs, Title} from "@/ui";
 import s from './Main.module.scss';
 
 export const Main = (): JSX.Element => {
@@ -17,7 +17,7 @@ export const Main = (): JSX.Element => {
             {
                 !isLarge && (
                     <button className={s.backButton} onClick={() => {
-                        setMode('register')
+                        setMode('register');
                     }}>
                         <Icon icon='arrow' width={24} height={24}/>
                     </button>
@@ -26,7 +26,6 @@ export const Main = (): JSX.Element => {
 
 
             <ModalsMainTop title={mode === 'register' ? 'Регистрация' : 'Войти в кабинет'} />
-
             {
                 isLarge && (
                     <Tabs className={s.tabs}>

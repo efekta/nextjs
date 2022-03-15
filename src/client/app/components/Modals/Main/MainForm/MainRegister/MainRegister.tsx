@@ -1,22 +1,14 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FormProvider, useForm } from 'react-hook-form';
 import {Button, Form} from '@/ui';
-
 import { FormInput } from '@/components';
-
 import { RegisterValidation } from '@client/utils/schemas/register.validation';
-
-import s from './MainRegister.module.scss';
-import { MainLogin } from '../MainLogin/MainLogin';
-import {SetStateAction, useState} from "react";
-import {mainItems} from "@client/app/components/Modals/Main/Main.data";
 
 export const MainRegister = (): JSX.Element => {
     const form = useForm({
         mode: 'onTouched',
         resolver: yupResolver(RegisterValidation),
     });
-    const [mode, setMode] = useState<'login' | 'register'>('register');
 
     const onSubmit = form.handleSubmit((data) => console.log(data));
 

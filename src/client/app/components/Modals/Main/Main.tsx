@@ -23,9 +23,15 @@ export const Main = (): JSX.Element => {
     // });
     return (
         <div className={s.main}>
-            <button className={s.backButton} onClick={() => {setMode('register')}}>
-                <Icon icon='arrow' width={24} height={24}/>
-            </button>
+            {
+                !isLarge && (
+                    <button className={s.backButton} onClick={() => {
+                        setMode('register')
+                    }}>
+                        <Icon icon='arrow' width={24} height={24}/>
+                    </button>
+                )
+            }
 
             <ModalsMainTop title={mode === 'register' ? 'Регистрация' : 'Войти в кабинет'} />
 

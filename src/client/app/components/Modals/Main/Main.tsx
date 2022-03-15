@@ -1,26 +1,17 @@
 import { SetStateAction, useState } from 'react';
-
+import {useIsLarge} from "@client/hooks/useMediaQuery";
 import { ModalsMainTop } from '../ModalsMainTop/ModalsMainTop';
 import { MainLogin } from './MainForm/MainLogin/MainLogin';
 import { MainRegister } from './MainForm/MainRegister/MainRegister';
+import {mainItems} from "./Main.data";
+import {Button, Icon, Tab, Tabs} from "@/ui";
 import s from './Main.module.scss';
-import {useTypedDispatch} from "@client/hooks/useTypedDispatch";
-import {useSelector} from "react-redux";
-import {getPublicModal} from "@store/models/modals/selectors";
-import {Button, Icon} from "@/ui";
-import { useForm, FormProvider } from 'react-hook-form';
-import { PublicModals } from '../../Modals/Modals.types';
-import {useIsLarge} from "@client/hooks/useMediaQuery";
-
 
 export const Main = (): JSX.Element => {
-    const { modals: { showPublicModal, hideModal } } = useTypedDispatch();
+
     const [mode, setMode] = useState<'login' | 'register'>('register');
     const isLarge = useIsLarge();
-    // const { modals: { hideModal } } = useTypedDispatch();
-    // const bla = (() => {
-    //     showPublicModal('login');
-    // });
+
     return (
         <div className={s.main}>
             {
@@ -33,13 +24,31 @@ export const Main = (): JSX.Element => {
                 )
             }
 
+
             <ModalsMainTop title={mode === 'register' ? 'Регистрация' : 'Войти в кабинет'} />
 
-            {mode === 'register' ? <MainRegister /> : <MainLogin />}
+            {
+                isLarge && (
+                    <Tabs className={s.tabs}>
+                        {mainItems.map((i) => (
+                            <Tab key={i.id} isSelected={mode === i.mode} onClick={() => setMode(i.mode as SetStateAction<'login' | 'register'>)}>
+                                {i.text}
+                            </Tab>
+                        ))}
+                    </Tabs>
+                )
+            }
 
-            <Button variant='ghost' type='button' onClick={() => {setMode('login')}}>
-                Уже есть аккаунт
-            </Button>
+            {mode === 'register' ? <MainRegister /> : <MainLogin />}
+            {
+                !isLarge && (
+                    <Button className={s.loginButton} variant='ghost' type='button' onClick={() => {
+                        setMode('login');
+                    }}>
+                        Уже есть аккаунт
+                    </Button>
+                )
+            }
 
         </div>
     );

@@ -27,10 +27,7 @@ export const Main = (): JSX.Element => {
 
             {mode === 'register' ? <MainRegister /> : <MainLogin />}
 
-            <Button variant='ghost' type='button' onClick={() => {
-                hideModal();
-                showPublicModal('login');
-            }}>
+            <Button variant='ghost' type='button' onClick={() => {setMode('login')}}>
                 Уже есть аккаунт
             </Button>
 

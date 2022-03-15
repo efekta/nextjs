@@ -7,17 +7,19 @@ import { Icon, Title } from '@/ui';
 
 import s from './ModalsMainTop.module.scss';
 import { ModalsMainTopProps } from './ModalsMainTop.props';
+import {useState} from "react";
 
 export const ModalsMainTop = ({title, className}: ModalsMainTopProps): JSX.Element => {
     const isLarge = useIsLarge();
     const { modals: { hideModal } } = useTypedDispatch();
+    const [mode, setMode] = useState<'login' | 'register'>('register');
 
     return (
         <>
             {
                 !isLarge && (
                     <div className={cn(s.top, className)}>
-                        <button className={s.backButton}>
+                        <button className={s.backButton} onClick={hideModal}>
                             <Icon icon='arrow' width={24} height={24}/>
                         </button>
                         <Title>{'title'}</Title>

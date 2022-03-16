@@ -1,12 +1,8 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-
 import { useForm, FormProvider } from 'react-hook-form';
-
 import { Button, Form } from '@/ui';
 import { FormInput } from '@/components';
-
 import { LoginValidation } from '@client/utils/schemas/login.validation';
-
 import s from './MainLogin.module.scss';
 
 export const MainLogin = (): JSX.Element => {

@@ -32,6 +32,14 @@
   }
 }
 
+.tabs {
+  margin-bottom: var(--space-large);
+
+  li {
+    width: auto;
+  }
+}
+
 .backButton {
   transform: rotate(180deg);
 }

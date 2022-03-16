@@ -8,23 +8,34 @@ import { Button, Icon, Tab, Tabs } from "@/ui";
 import s from './Main.module.scss';
 
 export const Main = (): JSX.Element => {
-
     const [mode, setMode] = useState<'login' | 'register'>('register');
     const isLarge = useIsLarge();
 
+    const renderBackBtn = () => {
+        if (!isLarge && mode === 'login') {
+            return (
+                <button className={s.backButton} onClick={() => {
+                    setMode('register');
+                }}>
+                    <Icon icon='arrow' width={24} height={24}/>
+                </button>
+            );
+        }
+    };
+
+    const renderLoginBtn = () => {
+        if (!isLarge && mode === 'register') {
+            return (
+                <Button className={s.loginButton} variant='ghost' type='button' onClick={() => {setMode('login');}}>
+                    Уже есть аккаунт
+                </Button>
+            );
+        }
+    };
+
     return (
         <div className={s.main}>
-            {
-                !isLarge && (
-                    <button className={s.backButton} onClick={() => {
-                        setMode('register');
-                    }}>
-                        <Icon icon='arrow' width={24} height={24}/>
-                    </button>
-                )
-            }
-
-
+            {renderBackBtn()}
             <ModalsMainTop title={mode === 'register' ? 'Регистрация' : 'Войти в кабинет'} />
             {
                 isLarge && (
@@ -37,18 +48,8 @@ export const Main = (): JSX.Element => {
                     </Tabs>
                 )
             }
-
             {mode === 'register' ? <MainRegister /> : <MainLogin />}
-            {
-                !isLarge && (
-                    <Button className={s.loginButton} variant='ghost' type='button' onClick={() => {
-                        setMode('login');
-                    }}>
-                        Уже есть аккаунт
-                    </Button>
-                )
-            }
-
+            {renderLoginBtn()}
         </div>
     );
 };
